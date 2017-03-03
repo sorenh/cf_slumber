@@ -3,8 +3,12 @@ from oauthlib.oauth2 import LegacyApplicationClient
 from requests_oauthlib import OAuth2Session
 
 class CloudFoundrySlumberClient(slumber.API):
-    def __init__(self, username, password, endpoint="https://api.run.pivotal.io/v2/"):
+    def __init__(self, username, password, endpoint="https://api.run.pivotal.io/v2/", verify=None):
         session = OAuth2Session(client=LegacyApplicationClient(client_id="cf"))
+
+        if verify is not None:
+            session.verify = verify
+
         super(CloudFoundrySlumberClient, self).__init__(endpoint, append_slash=False, session=session)
         session.fetch_token(token_url=self._auth_token_url(),
                             username=username,
