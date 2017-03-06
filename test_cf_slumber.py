@@ -74,7 +74,7 @@ class CloudFoundrySlumberClientTestCase(unittest.TestCase):
 
         cf = CloudFoundrySlumberClient('theusername', 'thepassword')
 
-        orgs = cf.organizations.get()
+        orgs = cf.v2.organizations.get()
 
         self.assertEquals(len(m.request_history), 3)
 
