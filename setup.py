@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='cf_slumber',
     py_modules=['cf_slumber'],
-    version='0.2',
+    version='0.3',
     description='CloudFoundry client based on Slumber',
     author='Soren Hansen',
     author_email='soren@linux2go.dk',
@@ -13,5 +13,5 @@ setup(
         'requests_oauthlib'
     ],
     tests_require=['six',
-                   'mock_requests'],
+                   'requests-mock'],
 )

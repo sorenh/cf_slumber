@@ -1,2 +1,2 @@
 six
-mock_requests
+requests-mock
